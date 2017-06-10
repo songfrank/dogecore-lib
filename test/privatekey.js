@@ -77,13 +77,13 @@ describe('PrivateKey', function() {
   });
 
   it('should create a private key from WIF string', function() {
-    var a = new PrivateKey('L3T1s1TYP9oyhHpXgkyLoJFGniEgkv2Jhi138d7R2yJ9F4QdDU2m');
+    var a = new PrivateKey('6Jks4jStWpWxvCRJGevSF23yZvBC3Xt7upQiQj7mSWomLXpTPia');
     should.exist(a);
     should.exist(a.bn);
   });
 
   it('should create a private key from WIF buffer', function() {
-    var a = new PrivateKey(Base58Check.decode('L3T1s1TYP9oyhHpXgkyLoJFGniEgkv2Jhi138d7R2yJ9F4QdDU2m'));
+    var a = new PrivateKey(Base58Check.decode('6Jks4jStWpWxvCRJGevSF23yZvBC3Xt7upQiQj7mSWomLXpTPia'));
     should.exist(a);
     should.exist(a.bn);
   });
@@ -120,13 +120,13 @@ describe('PrivateKey', function() {
 
     it('should not be able to instantiate private key because of network mismatch', function() {
       expect(function() {
-        return new PrivateKey('L3T1s1TYP9oyhHpXgkyLoJFGniEgkv2Jhi138d7R2yJ9F4QdDU2m', 'testnet');
+        return new PrivateKey('6Jks4jStWpWxvCRJGevSF23yZvBC3Xt7upQiQj7mSWomLXpTPia', 'testnet');
       }).to.throw('Private key network mismatch');
     });
 
     it('should not be able to instantiate private key WIF is too long', function() {
       expect(function() {
-        var buf = Base58Check.decode('L3T1s1TYP9oyhHpXgkyLoJFGniEgkv2Jhi138d7R2yJ9F4QdDU2m');
+        var buf = Base58Check.decode('6Jks4jStWpWxvCRJGevSF23yZvBC3Xt7upQiQj7mSWomLXpTPia');
         var buf2 = Buffer.concat([buf, new Buffer(0x01)]);
         return new PrivateKey(buf2);
       }).to.throw('Length of buffer must be 33 (uncompressed) or 34 (compressed');
@@ -134,7 +134,7 @@ describe('PrivateKey', function() {
 
     it('should not be able to instantiate private key WIF because of unknown network byte', function() {
       expect(function() {
-        var buf = Base58Check.decode('L3T1s1TYP9oyhHpXgkyLoJFGniEgkv2Jhi138d7R2yJ9F4QdDU2m');
+        var buf = Base58Check.decode('6Jks4jStWpWxvCRJGevSF23yZvBC3Xt7upQiQj7mSWomLXpTPia');
         var buf2 = Buffer.concat([new Buffer('ff', 'hex'), buf.slice(1, 33)]);
         return new PrivateKey(buf2);
       }).to.throw('Invalid network');
@@ -254,9 +254,9 @@ describe('PrivateKey', function() {
 
   describe('#toAddress', function() {
     it('should output this known livenet address correctly', function() {
-      var privkey = PrivateKey.fromWIF('L3T1s1TYP9oyhHpXgkyLoJFGniEgkv2Jhi138d7R2yJ9F4QdDU2m');
+      var privkey = PrivateKey.fromWIF('6Jks4jStWpWxvCRJGevSF23yZvBC3Xt7upQiQj7mSWomLXpTPia');
       var address = privkey.toAddress();
-      address.toString().should.equal('1A6ut1tWnUq1SEQLMr4ttDh24wcbJ5o9TT');
+      address.toString().should.equal('DMwAWwTHouFagYffAv1Lou7YE3gSg3Mnas');
     });
 
     it('should output this known testnet address correctly', function() {
@@ -275,7 +275,7 @@ describe('PrivateKey', function() {
 
   describe('#inspect', function() {
     it('should output known livenet address for console', function() {
-      var privkey = PrivateKey.fromWIF('L3T1s1TYP9oyhHpXgkyLoJFGniEgkv2Jhi138d7R2yJ9F4QdDU2m');
+      var privkey = PrivateKey.fromWIF('6Jks4jStWpWxvCRJGevSF23yZvBC3Xt7upQiQj7mSWomLXpTPia');
       privkey.inspect().should.equal(
         '<PrivateKey: b9de6e778fe92aa7edb69395556f843f1dce0448350112e14906efc2a80fa61a, network: livenet>'
       );
@@ -312,7 +312,7 @@ describe('PrivateKey', function() {
     });
 
     it('should validate as true', function() {
-      var a = PrivateKey.isValid('L3T1s1TYP9oyhHpXgkyLoJFGniEgkv2Jhi138d7R2yJ9F4QdDU2m');
+      var a = PrivateKey.isValid('6Jks4jStWpWxvCRJGevSF23yZvBC3Xt7upQiQj7mSWomLXpTPia');
       a.should.equal(true);
     });
 
@@ -429,7 +429,7 @@ describe('PrivateKey', function() {
     });
 
     it('should convert this known PrivateKey to known PublicKey and preserve compressed=true', function() {
-      var privwif = 'L3T1s1TYP9oyhHpXgkyLoJFGniEgkv2Jhi138d7R2yJ9F4QdDU2m';
+      var privwif = '6Jks4jStWpWxvCRJGevSF23yZvBC3Xt7upQiQj7mSWomLXpTPia';
       var privkey = new PrivateKey(privwif, 'livenet');
       var pubkey = privkey.toPublicKey();
       pubkey.compressed.should.equal(true);
