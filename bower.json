@@ -1,8 +1,8 @@
 {
-  "name": "bitcore-lib",
-  "main": "./bitcore-lib.min.js",
+  "name": "dogecore-lib",
+  "main": "./dogecore-lib.min.js",
   "version": "0.13.19",
-  "homepage": "http://bitcore.io",
+  "homepage": "http://dogecore.io",
   "authors": [
     "BitPay, Inc."
   ],
@@ -12,7 +12,7 @@
   ],
   "keywords": [
     "bitcoin",
-    "bitcore",
+    "dogecore",
     "btc",
     "satoshi"
   ],

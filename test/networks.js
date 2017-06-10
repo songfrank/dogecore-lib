@@ -2,8 +2,8 @@
 
 var expect = require('chai').expect;
 var should = require('chai').should();
-var bitcore = require('..');
-var networks = bitcore.Networks;
+var dogecore = require('..');
+var networks = dogecore.Networks;
 
 describe('Networks', function() {
 
@@ -17,19 +17,16 @@ describe('Networks', function() {
 
   it('will enable/disable regtest Network', function() {
     networks.enableRegtest();
-    networks.testnet.networkMagic.should.deep.equal(new Buffer('fabfb5da', 'hex'));
-    networks.testnet.port.should.equal(18444);
+    networks.testnet.networkMagic.should.deep.equal(new Buffer('c0c0c0c0', 'hex'));
+    networks.testnet.port.should.equal(22556);
     networks.testnet.dnsSeeds.should.deep.equal([]);
     networks.testnet.regtestEnabled.should.equal(true);
 
     networks.disableRegtest();
-    networks.testnet.networkMagic.should.deep.equal(new Buffer('0b110907', 'hex'));
-    networks.testnet.port.should.equal(18333);
+    networks.testnet.networkMagic.should.deep.equal(new Buffer('fcc1b7dc', 'hex'));
+    networks.testnet.port.should.equal(44556);
     networks.testnet.dnsSeeds.should.deep.equal([
-      'testnet-seed.bitcoin.petertodd.org',
-      'testnet-seed.bluematt.me',
-      'testnet-seed.alexykot.me',
-      'testnet-seed.bitcoin.schildbach.de'
+      'testseed.jrn.me.uk'
     ]);
   });
 

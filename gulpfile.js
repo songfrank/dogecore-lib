@@ -1,5 +1,5 @@
 
 
-var bitcoreTasks = require('bitcore-build');
+var dogecoreTasks = require('dogecore-build');
 
-bitcoreTasks('lib');
+dogecoreTasks('lib');

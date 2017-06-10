@@ -4,8 +4,8 @@
 var should = require('chai').should();
 var expect = require('chai').expect;
 
-var bitcore = require('../..');
-var JSUtil = bitcore.util.js;
+var dogecore = require('../..');
+var JSUtil = dogecore.util.js;
 
 describe('js utils', function() {
 

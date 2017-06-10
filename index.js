@@ -1,69 +1,69 @@
 'use strict';
 
-var bitcore = module.exports;
+var dogecore = module.exports;
 
 // module information
-bitcore.version = 'v' + require('./package.json').version;
-bitcore.versionGuard = function(version) {
+dogecore.version = 'v' + require('./package.json').version;
+dogecore.versionGuard = function(version) {
   if (version !== undefined) {
-    var message = 'More than one instance of bitcore-lib found. ' +
-      'Please make sure to require bitcore-lib and check that submodules do' +
-      ' not also include their own bitcore-lib dependency.';
+    var message = 'More than one instance of dogecore-lib found. ' +
+      'Please make sure to require dogecore-lib and check that submodules do' +
+      ' not also include their own dogecore-lib dependency.';
     throw new Error(message);
   }
 };
-bitcore.versionGuard(global._bitcore);
-global._bitcore = bitcore.version;
+dogecore.versionGuard(global._dogecore);
+global._dogecore = dogecore.version;
 
 // crypto
-bitcore.crypto = {};
-bitcore.crypto.BN = require('./lib/crypto/bn');
-bitcore.crypto.ECDSA = require('./lib/crypto/ecdsa');
-bitcore.crypto.Hash = require('./lib/crypto/hash');
-bitcore.crypto.Random = require('./lib/crypto/random');
-bitcore.crypto.Point = require('./lib/crypto/point');
-bitcore.crypto.Signature = require('./lib/crypto/signature');
+dogecore.crypto = {};
+dogecore.crypto.BN = require('./lib/crypto/bn');
+dogecore.crypto.ECDSA = require('./lib/crypto/ecdsa');
+dogecore.crypto.Hash = require('./lib/crypto/hash');
+dogecore.crypto.Random = require('./lib/crypto/random');
+dogecore.crypto.Point = require('./lib/crypto/point');
+dogecore.crypto.Signature = require('./lib/crypto/signature');
 
 // encoding
-bitcore.encoding = {};
-bitcore.encoding.Base58 = require('./lib/encoding/base58');
-bitcore.encoding.Base58Check = require('./lib/encoding/base58check');
-bitcore.encoding.BufferReader = require('./lib/encoding/bufferreader');
-bitcore.encoding.BufferWriter = require('./lib/encoding/bufferwriter');
-bitcore.encoding.Varint = require('./lib/encoding/varint');
+dogecore.encoding = {};
+dogecore.encoding.Base58 = require('./lib/encoding/base58');
+dogecore.encoding.Base58Check = require('./lib/encoding/base58check');
+dogecore.encoding.BufferReader = require('./lib/encoding/bufferreader');
+dogecore.encoding.BufferWriter = require('./lib/encoding/bufferwriter');
+dogecore.encoding.Varint = require('./lib/encoding/varint');
 
 // utilities
-bitcore.util = {};
-bitcore.util.buffer = require('./lib/util/buffer');
-bitcore.util.js = require('./lib/util/js');
-bitcore.util.preconditions = require('./lib/util/preconditions');
+dogecore.util = {};
+dogecore.util.buffer = require('./lib/util/buffer');
+dogecore.util.js = require('./lib/util/js');
+dogecore.util.preconditions = require('./lib/util/preconditions');
 
 // errors thrown by the library
-bitcore.errors = require('./lib/errors');
+dogecore.errors = require('./lib/errors');
 
 // main bitcoin library
-bitcore.Address = require('./lib/address');
-bitcore.Block = require('./lib/block');
-bitcore.MerkleBlock = require('./lib/block/merkleblock');
-bitcore.BlockHeader = require('./lib/block/blockheader');
-bitcore.HDPrivateKey = require('./lib/hdprivatekey.js');
-bitcore.HDPublicKey = require('./lib/hdpublickey.js');
-bitcore.Networks = require('./lib/networks');
-bitcore.Opcode = require('./lib/opcode');
-bitcore.PrivateKey = require('./lib/privatekey');
-bitcore.PublicKey = require('./lib/publickey');
-bitcore.Script = require('./lib/script');
-bitcore.Transaction = require('./lib/transaction');
-bitcore.URI = require('./lib/uri');
-bitcore.Unit = require('./lib/unit');
+dogecore.Address = require('./lib/address');
+dogecore.Block = require('./lib/block');
+dogecore.MerkleBlock = require('./lib/block/merkleblock');
+dogecore.BlockHeader = require('./lib/block/blockheader');
+dogecore.HDPrivateKey = require('./lib/hdprivatekey.js');
+dogecore.HDPublicKey = require('./lib/hdpublickey.js');
+dogecore.Networks = require('./lib/networks');
+dogecore.Opcode = require('./lib/opcode');
+dogecore.PrivateKey = require('./lib/privatekey');
+dogecore.PublicKey = require('./lib/publickey');
+dogecore.Script = require('./lib/script');
+dogecore.Transaction = require('./lib/transaction');
+dogecore.URI = require('./lib/uri');
+dogecore.Unit = require('./lib/unit');
 
 // dependencies, subject to change
-bitcore.deps = {};
-bitcore.deps.bnjs = require('bn.js');
-bitcore.deps.bs58 = require('bs58');
-bitcore.deps.Buffer = Buffer;
-bitcore.deps.elliptic = require('elliptic');
-bitcore.deps._ = require('lodash');
+dogecore.deps = {};
+dogecore.deps.bnjs = require('bn.js');
+dogecore.deps.bs58 = require('bs58');
+dogecore.deps.Buffer = Buffer;
+dogecore.deps.elliptic = require('elliptic');
+dogecore.deps._ = require('lodash');
 
 // Internal usage, exposed for testing/advanced tweaking
-bitcore.Transaction.sighash = require('./lib/transaction/sighash');
+dogecore.Transaction.sighash = require('./lib/transaction/sighash');
