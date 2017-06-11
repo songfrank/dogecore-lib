@@ -63,6 +63,7 @@ dogecore.deps.bnjs = require('bn.js');
 dogecore.deps.bs58 = require('bs58');
 dogecore.deps.Buffer = Buffer;
 dogecore.deps.elliptic = require('elliptic');
+dogecore.deps.scryptsy = require('scryptsy');
 dogecore.deps._ = require('lodash');
 
 // Internal usage, exposed for testing/advanced tweaking
