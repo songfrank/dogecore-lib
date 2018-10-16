@@ -1,5 +1,5 @@
 {
-  "name": "dogecore-lib",
+  "name": "bitcore",
   "version": "0.14.0",
   "description": "A pure and powerful JavaScript Dogecoin library.",
   "author": "Dogesight <xinayder.github@airmail.cc>",
